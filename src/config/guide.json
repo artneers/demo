@@ -1,0 +1,28 @@
+{
+  "guideOptions": [
+    {
+      "title": "欢迎来到AI前端训练营",
+      "description": "点击开始一起进入快乐的学习之旅吧"
+    },
+    {
+      "target": "#guideRef1",
+      "title": "",
+      "description": "学习html"
+    },
+    {
+      "target": "#guideRef2",
+      "title": "",
+      "description": "学习css"
+    },
+    {
+      "target": "#guideRef3",
+      "title": "",
+      "description": "学习js"
+    },
+    {
+      "target": "#guideRef4",
+      "title": "",
+      "description": "学习MVVM框架"
+    }
+  ]
+}
