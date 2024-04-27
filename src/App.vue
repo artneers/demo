@@ -1,9 +1,11 @@
 <template>
   <div class="container">
+    <!-- 页面元素 -->
     <button id="guideRef1" class="html-button">html</button>
     <button id="guideRef2" class="css-button">css</button>
     <button id="guideRef3" class="js-button">javascript</button>
     <button id="guideRef4" class="mvvm-button">vue/react</button>
+    <!-- 引导组件 -->
     <Guide v-model="open" :data="guideOptions" />
   </div>
 </template>
