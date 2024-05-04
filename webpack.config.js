@@ -1,29 +1,24 @@
 const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.ts',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    clean: true
   },
   module: {
     rules: [
       {
-        test: /\.(j|t)sx?$/,
-        use: 'babel-loader'
-      },
-      {
-        test: /.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        test: /\.txt$/,
+        type: 'asset',
+        parser: {
+          dataUrlCondition: {
+            maxSize: 1 // 1byte
+          }
+        }
       }
     ]
-  },
-  plugins: [
-    new MiniCssExtractPlugin()
-  ],
-  resolve: {
-    extensions: ['.tsx']
   }
 }

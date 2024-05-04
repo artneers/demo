@@ -1,8 +1,3 @@
-import './index.css'
+import text from './index.txt'
 
-const a = 1
-console.log(a, 'a')
-
-const fn = () => {}
-fn()
-
+console.log(text);
