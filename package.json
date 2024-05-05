@@ -4,14 +4,16 @@
   "description": "V6.0.1 webpack5和vite如何处理资源模块",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development --config webpack.config.js"
+    "dev": "webpack --mode development --config webpack.config.js",
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "vite": "5.2.11"
   },
   "browserslist": "> 0.05%, not dead"
 }
