@@ -1,57 +1,52 @@
 <template>
-  <div class="container">
-    <!-- 页面元素 -->
-    <button id="guideRef1" class="html-button">html</button>
-    <button id="guideRef2" class="css-button">css</button>
-    <button id="guideRef3" class="js-button">javascript</button>
-    <button id="guideRef4" class="mvvm-button">vue/react</button>
-    <!-- 引导组件 -->
-    <Guide v-model="open" :data="guideOptions" />
+  <div id="app">
+    <SearchForm :config="config" :options="options" @submit="getSearchResult" />
   </div>
 </template>
 
-<script setup>
-import Guide from './components/Guide.vue'
-import { guideOptions } from './config/guide.json'
+<script>
+import SearchForm from './components/SearchForm.vue'
 
-// 声明操作指引开启状态（为了演示方便，默认开启）
-const open = defineModel({
-  default: true
-});
+export default {
+  name: 'App',
+  components: {
+    SearchForm
+  },
+  data() {
+    return {
+      config: [
+        {
+          type: 'input',
+          label: '用户名称',
+          name: 'username',
+        },
+        {
+          type: 'select',
+          label: '用户状态',
+          name: 'status',
+          loadOption: () => this.getStatusOption
+        }
+      ],
+      options: {}
+    }
+  },
+  methods: {
+    getSearchResult(res) {
+      console.log(res, '筛选的条件为：')
+    },
+    getStatusOption() {
+      // 筛选项由一个异步请求整体返回，模拟后端接口
+      return Promise.resolve([
+        {
+          label: '正常',
+          value: 0
+        },
+        {
+          label: '停用',
+          value: 1
+        }
+      ])
+    }
+  }
+}
 </script>
-
-<style scoped>
-.container {
-  position: relative;
-}
-
-.container>button {
-  position: absolute;
-  width: 200px;
-  height: 50px;
-}
-
-.html-button {
-  top: 200px;
-  left: 200px;
-  background-color: burlywood;
-}
-
-.css-button {
-  top: 400px;
-  left: 400px;
-  background-color: olivedrab;
-}
-
-.js-button {
-  top: 600px;
-  left: 600px;
-  background-color: yellow;
-}
-
-.mvvm-button {
-  top: 300px;
-  left: 1000px;
-  background-color: greenyellow;
-}
-</style>
